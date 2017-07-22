@@ -8,13 +8,18 @@ class ArticulosController < ApplicationController
     #@articulo = Articulo.new(params[:articulo])
     @articulo = Articulo.new(articulo_params)
  
-    @articulo.save
-    redirect_to @articulo
-    #redirect_to articulos_path
-    #redirect_to articulo_path(@articulo)
+    if @articulo.save
+      redirect_to @articulo
+      #redirect_to articulos_path
+      #redirect_to articulo_path(@articulo)
+    else
+      #redirect_to new_articulo_path
+      render :new
+    end
   end
 
   def new
+    @articulo = Articulo.new
   end
 
   def edit
