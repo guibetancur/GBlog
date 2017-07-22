@@ -3,6 +3,10 @@ class ArticulosController < ApplicationController
     @articulos = Articulo.all
   end
 
+  def new
+    @articulo = Articulo.new
+  end
+
   def create
     #render plain: params[:articulo].inspect
     #@articulo = Articulo.new(params[:articulo])
@@ -18,20 +22,24 @@ class ArticulosController < ApplicationController
     end
   end
 
-  def new
-    @articulo = Articulo.new
-  end
-
-  def edit
-  end
-
   def show
     @articulo = Articulo.find(params[:id])
   end
 
-  def update
+  def edit
+    @articulo = Articulo.find(params[:id])
   end
 
+  def update
+    @articulo = Articulo.find(params[:id])
+ 
+    if @articulo.update(articulo_params)
+      redirect_to @articulo
+    else
+      render :edit
+    end
+  end
+  
   def destroy
   end
 
