@@ -5,6 +5,7 @@ class ArticulosController < ApplicationController
 
   def new
     @articulo = Articulo.new
+    @title = "Nuevo"
   end
 
   def create
@@ -28,6 +29,7 @@ class ArticulosController < ApplicationController
 
   def edit
     @articulo = Articulo.find(params[:id])
+    @title = "Editar"
   end
 
   def update
@@ -41,6 +43,10 @@ class ArticulosController < ApplicationController
   end
   
   def destroy
+    @articulo = Articulo.find(params[:id])
+    @articulo.destroy
+
+    redirect_to articulos_path
   end
 
   private
