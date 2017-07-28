@@ -1,4 +1,8 @@
 class ArticulosController < ApplicationController
+  # callback de devise
+  before_action :authenticate_user!, except: [ :index, :show ]
+
+
   def index
     @articulos = Articulo.all
   end

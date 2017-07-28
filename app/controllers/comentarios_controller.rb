@@ -1,4 +1,6 @@
 class ComentariosController < ApplicationController
+	before_action :authenticate_user!
+
 
 	def create
 	    @articulo = Articulo.find(params[:articulo_id])
