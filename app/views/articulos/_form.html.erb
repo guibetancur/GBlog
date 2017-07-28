@@ -15,19 +15,20 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :titular %><br>
-    <%= f.text_field :titular %>
-  </p>
- 
-  <p>
-    <%= f.label :contenido %><br>
-    <%= f.text_area :contenido %>
-  </p>
- 
-  <p>
-    <%= f.submit 'Guardar Artículo' %>
-  </p>
+  <div class="form-group">
+    <%= f.label :titular, 'Titular:' %>
+    <%= f.text_field :titular, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contenido, 'Contenido:' %>
+    <%= f.text_area :contenido, rows: 10, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-right">
+    <%= f.submit "Guardar Artículo", class: 'btn btn-success' %>
+  </div>
+
 <% end %>
 
 <%= link_to 'Regresar', articulos_path %>
