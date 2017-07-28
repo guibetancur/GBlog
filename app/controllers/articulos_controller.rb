@@ -17,9 +17,11 @@ class ArticulosController < ApplicationController
       redirect_to @articulo
       #redirect_to articulos_path
       #redirect_to articulo_path(@articulo)
+      flash[:notice] = 'El articulo ha sido guardado exitosamente'
     else
       #redirect_to new_articulo_path
       render :new
+      flash[:alert] = 'El articulo no fue guardado'
     end
   end
 
@@ -37,8 +39,10 @@ class ArticulosController < ApplicationController
  
     if @articulo.update(articulo_params)
       redirect_to @articulo
+      flash[:notice] = 'El articulo ha sido editado exitosamente'
     else
       render :edit
+      flash[:alert] = 'El articulo no ha sido editado exitosamente'
     end
   end
   
