@@ -53,4 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # config devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Internacionalización i18n
+  config.i18n.available_locales = :es
 end

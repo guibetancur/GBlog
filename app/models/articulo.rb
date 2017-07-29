@@ -11,6 +11,7 @@
 
 class Articulo < ApplicationRecord
 	has_many :comentarios
+	belongs_to :user
 	
 	validates :titular, presence: true, length: { minimum: 5 }
 	validates :contenido, presence: true
